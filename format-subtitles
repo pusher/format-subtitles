@@ -1,0 +1,27 @@
+#!/usr/bin/env node
+
+const meow = require('meow')
+const fs = require('fs')
+
+const cli = meow()
+
+function exit (err)  {
+  console.error('error:', err)
+  process.exit()
+}
+
+if (cli.input.length > 0) {
+  const subtitlesPath = cli.input.shift()
+  fs.readFile(subtitlesPath, 'utf8', function (err, subtitles) {
+    if (!err) {
+      const result = subtitles.replace(
+        /([0-9]{2}:[0-9]{2},[0-9]{3})/g,
+        matched => `00:${matched}`)
+      console.log(result)
+    } else {
+      exit(err)
+    }
+  })
+} else {
+  exit('you did not specify any arguments YO!')
+}

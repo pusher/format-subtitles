@@ -1,0 +1,14 @@
+{
+  "name": "subtitle-formatter",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "url": "https://github.com/pusher/subtitle-formatter",
+    "type": "git"
+  },
+  "author": "Alex Booker <booker@pusher.com>",
+  "license": "MIT",
+  "dependencies": {
+    "meow": "^3.7.0"
+  }
+}
